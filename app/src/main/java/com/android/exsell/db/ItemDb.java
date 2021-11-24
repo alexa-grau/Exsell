@@ -24,7 +24,7 @@ import java.util.List;
 import java.util.Set;
 
 public class ItemDb {
-    private String TAG = "ItemDB";
+    private final String TAG = "ItemDB";
     private static ItemDb itemDb;
     private FirebaseFirestore db;
     private CollectionReference itemCollectionReference;
@@ -45,7 +45,7 @@ public class ItemDb {
                 .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                     @Override
                     public void onSuccess(DocumentReference documentReference) {
-                        Log.i(TAG, "Succefully inserted");
+                        Log.i(TAG, "Successfully inserted");
                         item.setProductId(documentReference.getId());
                         // add the itemId to ItemId body
                         updateItem(item);
@@ -67,7 +67,7 @@ public class ItemDb {
                     QuerySnapshot querySnapshot = task.getResult();
                     List<Product> itemsList = querySnapshot.toObjects(Product.class);
                     for(Product it: itemsList) {
-                        Log.i(TAG," data recieved "+ it.getBuyer());
+                        Log.i(TAG," data received "+ it.getBuyer());
                     }
                     callback.onCallback(itemsList);
                 } else {

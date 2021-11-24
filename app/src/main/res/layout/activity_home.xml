@@ -34,14 +34,20 @@
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     android:text="Shop by Categories"/>
-                <LinearLayout
-                    android:id="@+id/linear"
+
+                <HorizontalScrollView
+                    android:id="@+id/horizontal_scroll_categories"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:layout_constraintTop_toBottomOf="@+id/category_header"
-                    android:orientation="horizontal">
-                    <!-- Images added in activity onCreate -->
-                </LinearLayout>
+                    app:layout_constraintTop_toBottomOf="@+id/category_header">
+                    <LinearLayout
+                        android:id="@+id/linear"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <!-- Images added in activity onCreate -->
+                    </LinearLayout>
+                </HorizontalScrollView>
 
                 <!-- Newly listed -->
                 <TextView
@@ -49,16 +55,22 @@
                     android:textSize="24sp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_constraintTop_toBottomOf="@id/linear"
+                    app:layout_constraintTop_toBottomOf="@id/horizontal_scroll_categories"
                     app:layout_constraintStart_toStartOf="parent"
                     android:text="Newly Listed"/>
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/new_recycler"
-                    android:layout_width="match_parent"
+                <HorizontalScrollView
+                    android:id="@+id/horizontal_scroll_new"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_constraintTop_toBottomOf="@id/new_header"
-                    app:layout_constraintStart_toStartOf="parent" />
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/new_header">
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/new_recycler"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+                </HorizontalScrollView>
+
 
                 <!-- Recommended for you -->
                 <TextView
@@ -66,7 +78,7 @@
                     android:textSize="24sp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_constraintTop_toBottomOf="@id/new_recycler"
+                    app:layout_constraintTop_toBottomOf="@id/horizontal_scroll_new"
                     app:layout_constraintStart_toStartOf="parent"
                     android:text="Recommended for You"/>
 
@@ -76,19 +88,6 @@
                     android:layout_height="wrap_content"
                     app:layout_constraintTop_toBottomOf="@id/recommended_header"
                     app:layout_constraintStart_toStartOf="parent" />
-
-<!--                <include layout="@layout/test_item_tile"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:id="@+id/test_item_tiles2"-->
-<!--                    app:layout_constraintTop_toBottomOf="@id/recommended_header"-->
-<!--                    app:layout_constraintStart_toStartOf="parent"/>-->
-<!--                <include layout="@layout/test_item_tile"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:id="@+id/test_item_tiles3"-->
-<!--                    app:layout_constraintTop_toBottomOf="@id/test_item_tiles2"-->
-<!--                    app:layout_constraintStart_toStartOf="parent"/>-->
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </ScrollView>
